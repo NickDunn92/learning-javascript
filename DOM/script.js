@@ -1,10 +1,12 @@
 var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
 var ul = document.querySelector("ul");
-var li = document.querySelectorAll("li")[0];
+var li = document.querySelectorAll("li");
 
-function toggleItem() {
-	li.classList.toggle("done");
+for (var i = 0; i < li.length; i++) {
+	function toggleItem() {
+		li.classList.toggle("done");
+	}
 }
 
 function inputLength() {
