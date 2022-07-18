@@ -1,12 +1,22 @@
 var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
 var ul = document.querySelector("ul");
-var li = document.querySelectorAll("li");
+var listItems = document.querySelectorAll("li");
 
-for (var i = 0; i < li.length; i++) {
-	function toggleItem() {
-		li.classList.toggle("done");
-	}
+function setupListItem(item) {
+	item.addEventListener("click", toggleItem);
+
+	const deleteButton = document.createElement('button');
+	deleteButton.innerText = 'X';
+	deleteButton.addEventListener("click", function (i) {
+		i.target.parentElement.remove();
+	});
+
+	item.appendChild(deleteButton);
+}
+
+function toggleItem(item) {
+	item.target.classList.toggle("done");
 }
 
 function inputLength() {
@@ -14,9 +24,12 @@ function inputLength() {
 }
 
 function createListElement() {
-	var li = document.createElement("li");
-	li.appendChild(document.createTextNode(input.value));
-	ul.appendChild(li);
+	var newListItem = document.createElement("li");
+	newListItem.appendChild(document.createTextNode(input.value));
+
+	setupListItem(newListItem);
+
+	ul.appendChild(newListItem);
 	input.value = "";
 }
 
@@ -32,8 +45,10 @@ function addListAfterKeypress(event) {
 	}
 }
 
+for (var i = 0; i < listItems.length; i++) {
+	setupListItem(listItems[i]);
+}
+
 button.addEventListener("click", addListAfterClick);
 
 input.addEventListener("keypress", addListAfterKeypress);
-
-li.addEventListener("click", toggleItem);
