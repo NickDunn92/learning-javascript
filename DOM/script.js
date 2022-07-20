@@ -1,4 +1,4 @@
-// Methods that return an element or a list of elements and assign them to a variable  
+// Fetch the HTML elements on the page  
 var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
 var ul = document.querySelector("ul");
@@ -49,8 +49,7 @@ function addListAfterKeypress(event) {
 	}
 }
 
-// for loop that loops through the listItems array
-
+// for loop that loops through the listItems array, calling the setupListItem function on each item in the array.
 for (var i = 0; i < listItems.length; i++) {
 	setupListItem(listItems[i]);
 }
