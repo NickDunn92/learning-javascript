@@ -49,7 +49,7 @@ function addListAfterKeypress(event) {
 	}
 }
 
-// for loop that loops through the listItems array, calling the setupListItem function on each item in the array.
+// for loop that iterates over the listItems, calling the setupListItem function on each item.
 for (var i = 0; i < listItems.length; i++) {
 	setupListItem(listItems[i]);
 }
