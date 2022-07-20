@@ -1,4 +1,4 @@
-// Methods that return each of the elements and assign them to a variable  
+// Methods that return an element or a list of elements and assign them to a variable  
 var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
 var ul = document.querySelector("ul");
